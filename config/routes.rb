@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  namespace :api do
+    namespace :v1 do
+      resources :pins
+    end
+  end
+
   # resources :pins do
   #   resources :comments, except: :show
   # end
