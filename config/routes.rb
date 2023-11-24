@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   devise_for :users
 
   namespace :api do
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
       resources :pins
     end
   end
+
+  resources :profiles, only: [:show, :edit, :update]
 
   # resources :pins do
   #   resources :comments, except: :show
@@ -15,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
   get 'welcome/about'
+  get 'welcome/feed'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

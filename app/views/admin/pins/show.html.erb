@@ -6,7 +6,7 @@
 
 <h2>Comments</h2>
 
-<%= render @pin.comments %>
+<%= render @pin.comments, pin: @pin %>
 
 <div>
   <%= link_to "Edit this pin", edit_admin_pin_path(@pin) %> |

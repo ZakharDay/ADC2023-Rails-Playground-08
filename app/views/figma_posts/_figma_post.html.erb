@@ -1,0 +1,17 @@
+<div class="post">
+  <h2>
+    <a href="<%= post_path(figma_post) %>">
+      <%= figma_post.title %>
+    </a>
+  </h2>
+
+  <p><%= figma_post.body %></p>
+
+  <iframe
+    style="border: 1px solid rgba(0, 0, 0, 0.1);"
+    width="800"
+    height="450"
+    src="https://www.figma.com/embed?embed_host=share&url=<%= figma_post.url %>"
+    allowfullscreen>
+  </iframe>
+</div>
