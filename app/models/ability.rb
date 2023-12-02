@@ -9,10 +9,15 @@ class Ability
       can :manage, :all
     end
 
-    # if user
-    #   can :manage, Pin, user_id: user.id
-    #   can :manage, Comment, user_id: user.id
-    # end
+    if user
+      can :manage, Pin, user_id: user.id
+      can :manage, Comment, user_id: user.id
+      can :manage, PolyComment, user_id: user.id
+    end
+
+    can :read, Pin
+    can :create, Comment
+    can :create, PolyComment
 
 
     # can :edit, Comment, user_id: user.id

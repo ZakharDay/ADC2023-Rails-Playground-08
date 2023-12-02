@@ -1,0 +1,25 @@
+<%= form_with(model: poly_comment) do |form| %>
+  <% if poly_comment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(poly_comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% poly_comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :commentable_type, value: commentable.class.base_class %>
+  <%= form.hidden_field :commentable_id, value: commentable.id %>
+
+  <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

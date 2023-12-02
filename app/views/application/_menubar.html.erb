@@ -7,6 +7,9 @@
       <%= link_to "Comments", admin_comments_url %>
       <%= link_to "Subscriptions", admin_subscriptions_url %>
       <%= link_to "Feed", welcome_feed_url %>
+    <% else %>
+      <%= link_to "Pins", pins_url %>
+      <%= link_to "Feed", welcome_feed_url %>
     <% end%>
   </div>
 
@@ -18,8 +21,8 @@
       <%= link_to "Profile", profile_path(current_user.profile) %>
       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     <% else %>
-      <%#= link_to "Log in", new_user_session_path %>
-      <%#= link_to "Register", new_user_registration_path %>
+      <%= link_to "Log in", new_user_session_path %>
+      <%= link_to "Register", new_user_registration_path %>
     <% end %>
   </div>
 </nav>

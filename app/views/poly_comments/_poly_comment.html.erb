@@ -1,0 +1,18 @@
+<div class="comment" id="<%= dom_id poly_comment %>">
+  <p>
+    <strong>
+      <%= poly_comment.user.email %>
+    </strong>
+  </p>
+
+  <p>
+    <%= poly_comment.body %>
+  </p>
+
+  <% if can? :manage, poly_comment %>
+    <div>
+      <%#= link_to "Edit this comment", edit_pin_comment_path(pin, comment) %>
+      <%#= button_to "Destroy this comment", pin, comment, method: :delete %>
+    </div>
+  <% end %>
+</div>

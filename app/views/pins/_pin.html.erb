@@ -1,0 +1,29 @@
+<div id="<%= dom_id pin %>">
+  <%= image_tag pin.pin_image.url, width: 300 if pin.pin_image.url %>
+
+  <p>
+    <strong>Title:</strong>
+    <%= pin.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= pin.description %>
+  </p>
+
+  <p>
+    <strong>By</strong>
+    <%= pin.user.email %>
+  </p>
+
+  <p>
+    <strong>Tags</strong>
+    <%= pin.tag_list %>
+  </p>
+
+  <p>
+    <strong>Categories</strong>
+    <%= pin.category_list %>
+  </p>
+
+</div>

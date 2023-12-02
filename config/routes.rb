@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+  resources :poly_comments
+
+  resources :pins do
+    resources :comments
+
+    get "/by_tag/:tag", to: "pins#by_tag", on: :collection, as: "tagged"
+  end
+
   resources :posts
+
   devise_for :users
 
   namespace :api do

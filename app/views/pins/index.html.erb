@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Pins</h1>
+<% Pin.tag_counts_on(:tags).each do |tag| %>
+  <div>
+    <%= link_to tagged_pins_path(tag.name) do %>
+      <%= tag.name %> (<%= tag.taggings_count %>)
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to "New pin", new_pin_path %>
+
+<div id="pins">
+  <% @pins.each do |pin| %>
+
+    <%= link_to pin, class: 'pinCard' do %>
+      <%= render pin %>
+    <% end %>
+
+  <% end %>
+</div>

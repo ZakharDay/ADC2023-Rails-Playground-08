@@ -1,0 +1,26 @@
+<div class="comment" id="<%= dom_id comment %>">
+  <%= comment.reply_to_comment_id != nil %>
+
+  <p>
+    <strong>
+      <%= comment.user.email %>
+    </strong>
+  </p>
+
+  <p>
+    <%= comment.body %>
+  </p>
+
+  <% if can? :manage, comment %>
+    <div>
+      <%#= link_to "Edit this comment", edit_pin_comment_path(pin, comment) %>
+      <%#= button_to "Destroy this comment", pin, comment, method: :delete %>
+    </div>
+  <% end %>
+
+  <div class="commentReplies">
+    <% comment.replies.each do |reply| %>
+      <%= render reply, partial: "comments/comment", comment: reply, pin: pin %>
+    <% end%>
+  </div>
+</div>

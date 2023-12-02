@@ -8,3 +8,10 @@
 
   <%= button_to "Destroy this post", post_path(@post), method: :delete %>
 </div>
+
+<h2>PolyComments</h2>
+<%# if can? :create, PolyComment %>
+  <%= render "poly_comments/form", commentable: @post, poly_comment: PolyComment.new %>
+<%# end %>
+
+<%= render @post.poly_comments %>

@@ -79,6 +79,6 @@ class PostsController < ApplicationController
         p = params.require(:figma_post)
       end
 
-      p.permit(:type, :title, :body, :url)
+      p.permit(:type, :title, :body, :url, :tag_list)
     end
 end
