@@ -1,6 +1,16 @@
+<%
+  set_meta_tags og: {
+    title: "Пины",
+    image: request.base_url + "/shared/share.jpg"
+  }
+%>
+
+<%# content_for :head do %>
+<%# end %>
+
 <p style="color: green"><%= notice %></p>
 
-<h1>Pins</h1>
+<h1><%= title "Пины" %></h1>
 <% Pin.tag_counts_on(:tags).each do |tag| %>
   <div>
     <%= link_to tagged_pins_path(tag.name) do %>

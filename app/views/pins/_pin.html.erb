@@ -1,4 +1,9 @@
 <div id="<%= dom_id pin %>">
+  <%= pin.id %>
+  <br>
+  <%= pin.slug %>
+  <br>
+
   <%= image_tag pin.pin_image.url, width: 300 if pin.pin_image.url %>
 
   <p>

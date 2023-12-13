@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+body {
+  // font-family: ADC;
+}
+
 h1 {
   font-family: Helvetica;
 }
@@ -44,8 +48,8 @@ h1 {
 
 .commentReplies {
   padding-left: 40px;
-}
 
-.commentReplies > div {
-  padding: 20px;
+  & > div {
+    padding: 20px;
+  }
 }

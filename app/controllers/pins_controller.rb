@@ -5,6 +5,10 @@ class PinsController < ApplicationController
   # GET /pins or /pins.json
   def index
     @pins = Pin.all
+
+    # META
+    @title = "Пины"
+    # 
   end
 
   def by_tag
@@ -66,7 +70,7 @@ class PinsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pin
-      @pin = Pin.find(params[:id])
+      @pin = Pin.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

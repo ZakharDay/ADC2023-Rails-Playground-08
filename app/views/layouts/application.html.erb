@@ -1,10 +1,26 @@
+<%#
+  if request.base_url + request.original_fullpath == root_url
+    title = "Тестовый сайт"
+  end
+
+  if @title
+    @title = [@title, title].join(" | ")
+  else
+    @title = "Тестовый сайт"
+  end
+%>
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ADC2023RailsPlayground08</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%#= @title %>
+    <%#= yield :head %>
+
+    <%= display_meta_tags site: "Тестовый сайт", reverse: true %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -12,6 +28,10 @@
 
   <body>
     <%= render 'menubar' %>
+
+    <%= title %>
+    <br>
+    <%= root_url %>
 
     <section class="contentArea">
       <%= yield %>

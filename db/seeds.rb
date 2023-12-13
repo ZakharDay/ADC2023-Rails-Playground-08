@@ -3,6 +3,7 @@
 
 def seed
   reset_db
+  clean_content_folders
   create_admin
   create_users
   create_pins(100)
@@ -14,6 +15,10 @@ def reset_db
   Rake::Task['db:drop'].invoke
   Rake::Task['db:create'].invoke
   Rake::Task['db:migrate'].invoke
+end
+
+def clean_content_folders
+  FileUtils.rm_rf('public/uploads')
 end
 
 def create_admin
@@ -69,6 +74,7 @@ def create_pins(quantity)
     user = User.all.sample
     pin = Pin.create(title: create_sentence, description: create_sentence, pin_image: upload_random_image, user_id: user.id)
     puts "Pin with id #{pin.id} just created"
+    puts "Slug: #{pin.slug}"
   end
 end
 

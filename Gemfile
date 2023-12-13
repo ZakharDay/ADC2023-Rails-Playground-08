@@ -49,10 +49,16 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "carrierwave"
+gem "mini_magick"
 gem "devise"
 gem "cancancan"
 gem "rack-cors"
 gem "acts-as-taggable-on", "~> 9.0"
+gem "sass-rails"
+gem "meta-tags"
+gem "friendly_id", "~> 5.4.0"
+gem "babosa"
+gem "russian"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
