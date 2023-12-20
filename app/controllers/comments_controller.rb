@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource
   before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :set_pin, only: %i[ create edit ]
 
   def index
     @comments = Comment.all
@@ -18,12 +19,14 @@ class CommentsController < ApplicationController
 
   def create
     if current_user
-      @pin = Pin.find(params[:pin_id])
       @comment = @pin.comments.new(comment_params)
       # @comment = @pin.comments.new(body: params[:comment][:body], user_id: current_user.id)
 
       respond_to do |format|
         if @comment.save
+          # @pin = @comment.pin
+          # format.turbo_stream { render turbo_stream: turbo_stream.prepend('comments', partial: 'comment', locals: {pin: @pin}) }
+
           format.html { redirect_to pin_url(@pin), notice: "Comment was successfully created." }
           format.json { render :show, status: :created, location: @comment }
         else
@@ -67,7 +70,7 @@ class CommentsController < ApplicationController
     end
 
     def set_pin
-      @pin = Pin.find(params[:pin_id])
+      @pin = Pin.friendly.find(params[:pin_id])
     end
 
     # Only allow a list of trusted parameters through.

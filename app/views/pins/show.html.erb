@@ -1,7 +1,4 @@
 <p style="color: green"><%= notice %></p>
-<%= @pin.id %>
-<br>
-<%= @pin.slug %>
 
 <%= render @pin %>
 
@@ -17,10 +14,16 @@
 <h2>Comments</h2>
 
 <%# if can? :create, Comment %>
+<%= turbo_frame_tag :comment_form do %>
   <%= render "comments/form", pin: @pin, comment: Comment.new %>
+<% end%>
 <%# end %>
 
-<%= render @pin.comments, pin: @pin %>
+<%= turbo_stream_from "comments" %>
+
+<%= turbo_frame_tag "comments" do %>
+  <%= render @pin.comments, pin: @pin %>
+<% end %>
 
 <div>
   <%= link_to "Edit this pin", edit_pin_path(@pin) %> |

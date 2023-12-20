@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :poly_comments
+  resources :comments, only: [:edit, :update]
 
   resources :pins do
     resources :comments

@@ -1,6 +1,5 @@
+<%= turbo_frame_tag dom_id(comment) do %>
 <div class="comment" id="<%= dom_id comment %>">
-  <%= comment.reply_to_comment_id != nil %>
-
   <p>
     <strong>
       <%= comment.user.email %>
@@ -11,12 +10,14 @@
     <%= comment.body %>
   </p>
 
-  <% if can? :manage, comment %>
+  <%# if can? :manage, comment %>
+  
     <div>
-      <%#= link_to "Edit this comment", edit_pin_comment_path(pin, comment) %>
-      <%#= button_to "Destroy this comment", pin, comment, method: :delete %>
+      <%= link_to "Edit this comment", edit_pin_comment_path(comment.pin, comment) %>
+      <%#= button_to "Destroy this comment", [pin, comment], method: :delete %>
     </div>
-  <% end %>
+
+  <%# end %>
 
   <div class="commentReplies">
     <% comment.replies.each do |reply| %>
@@ -24,3 +25,4 @@
     <% end%>
   </div>
 </div>
+<% end %>

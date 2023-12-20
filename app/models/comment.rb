@@ -6,4 +6,7 @@ class Comment < ApplicationRecord
   belongs_to :user
 
   default_scope { where(reply_to_comment_id: nil) }
+
+  after_create_commit { broadcast_append_to("comments") }
+  after_update_commit { broadcast_replace_to("comment") }
 end
