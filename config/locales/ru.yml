@@ -1,0 +1,32 @@
+ru:
+  activerecord:
+    models:
+      user:
+        one: 'Пользователь'
+        few: 'Пользователя'
+        many: 'Пользователей'
+        other: 'Пользователя'
+      support: 'запрос в поддержку'
+      subscription: 'подписку'
+    attributes:
+      user:
+        email: 'Электронная почта'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+      support:
+        email: 'Электронная почта'
+        comment: 'Ваш запрос'
+      subscription:
+        email: 'Электронная почта'
+  helpers:
+    submit:
+      subscription:
+        create: 'Подписаться'
+  some_key:
+    some_internal_key:
+      one_more_key: 'Текст на русском'
+  exam:
+    one: 'экзамен'
+    few: 'экзамена'
+    many: 'экзаменов'
+    other: 'экзамена'

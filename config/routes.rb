@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'support/request_support'
+
   resources :poly_comments
   resources :comments, only: [:edit, :update]
 
