@@ -1,0 +1,11 @@
+<%
+  cart_items_counter = @guest.carts.last.products.count
+%>
+
+<%= turbo_frame_tag 'cartbar' do %>
+  <div>
+    В корзине
+    <%= cart_items_counter %>
+    <%= I18n.t :cart_item, count: cart_items_counter %>
+  </div>
+<% end %>

@@ -9,6 +9,7 @@ def seed
   create_pins(100)
   create_comments(2..8)
   create_comment_replies(1000)
+  create_products(100)
 end
 
 def reset_db
@@ -94,6 +95,13 @@ def create_comment_replies(quantity)
     comment = Comment.all.sample
     reply = comment.replies.create(pin_id: comment.pin_id, user_id: user.id, body: create_sentence)
     puts "Comment reply with id #{reply.id} for comment with id #{comment.id} just created"
+  end
+end
+
+def create_products(quantity)
+  quantity.times do
+    product = Product.create(name: create_sentence)
+    puts "Product with id #{product.id} just created"
   end
 end
 

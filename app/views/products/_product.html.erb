@@ -1,0 +1,10 @@
+<div>
+  <p>
+    <strong>Name:</strong>
+    <%= product.name %>
+  </p>
+
+  <%= turbo_frame_tag dom_id(product) do %>
+    <%= link_to 'Добавить в корзину', cart_add_path(product), 'data-turbo-stream': '' %>
+  <% end %>
+</div>

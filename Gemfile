@@ -59,6 +59,7 @@ gem "meta-tags"
 gem "friendly_id", "~> 5.4.0"
 gem "babosa"
 gem "russian"
+gem "devise-jwt"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

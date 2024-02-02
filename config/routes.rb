@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'cart/add/:id', to: 'carts#add', as: 'cart_add'
+
+  resources :products
+
   post 'support/request_support'
 
   resources :poly_comments
