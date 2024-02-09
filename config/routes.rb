@@ -18,9 +18,25 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  # devise_for :users, path: '', path_names: {
+  #   sign_in: 'login',
+  #   sign_out: 'logout',
+  #   registration: 'signup'
+  # },
+  # controllers: {
+  #   sessions: 'users/sessions',
+  #   registrations: 'users/registrations'
+  # }
+
   namespace :api do
     namespace :v1 do
       resources :pins
+
+      devise_scope :user do
+        post "sign_up", to: "registrations#create"
+        post "sign_in", to: "sessions#create"
+        post "sign_out", to: "sessions#destroy"
+      end
     end
   end
 
