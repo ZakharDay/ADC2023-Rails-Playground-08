@@ -9,8 +9,7 @@ class Api::V1::PinsController < Api::V1::ApplicationController
   end
 
   def create
-    jti = request.headers["Authorization"]
-    user = User.find_by_jti(jti)
+    user = User.find_by_jti(decrypt_payload[0]['jti'])
     @pin = user.pins.new(pin_params)
 
     if @pin.save

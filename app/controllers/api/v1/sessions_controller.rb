@@ -11,7 +11,7 @@ class Api::V1::SessionsController < Devise::SessionsController
       render json: {
         messages: "Signed In Successfully",
         is_success: true,
-        user: @user
+        jwt: encrypt_payload
       }, status: :ok
     else
       render json: {
@@ -23,22 +23,9 @@ class Api::V1::SessionsController < Devise::SessionsController
   end
 
   def destroy
-    # jti = request.headers["Authorization"]
-    
-    # Rails.logger.info "====================="
-    # Rails.logger.info jti
-    # Rails.logger.info "====================="
+    @user = User.find_by_jti(decrypt_payload[0]['jti'])
 
-    # jwt_payload = JWT.decode(jti, Rails.application.credentials.devise_jwt_secret_key!)
-
-    # Rails.logger.info jwt_payload
-    # puts = jwt_payload['sub']
-    # puts = "====================="
-
-    jti = request.headers["Authorization"]
-    user = User.find_by_jti(jti)
-
-    if user && user.update_column(:jti, SecureRandom.uuid)
+    if @user && @user.update_column(:jti, SecureRandom.uuid)
       render json: {
         messages: "Signed Out Successfully",
         is_success: true,
@@ -71,6 +58,16 @@ class Api::V1::SessionsController < Devise::SessionsController
           data: {}
         }, status: :failure
       end
+    end
+
+    def encrypt_payload
+      payload = @user.as_json(only: [:email, :jti])
+      token = JWT.encode(payload, Rails.application.credentials.devise_jwt_secret_key!, 'HS256')
+    end
+
+    def decrypt_payload
+      jwt = request.headers["Authorization"]
+      token = JWT.decode(jwt, Rails.application.credentials.devise_jwt_secret_key!, true, { algorithm: 'HS256' })
     end
 
 end
