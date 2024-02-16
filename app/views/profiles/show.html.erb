@@ -2,4 +2,35 @@
 <br><br>
 <%= @profile.about %>
 <br><br>
+
+<br><br>
+
+<h2>Inviter</h2>
+<br>
+<% if @profile.user.invite %>
+  <%= @profile.user.invite.inviter.email %>
+<% end %>
+
+<br><br>
+
+<h2>Invites</h2>
+<br>
+You have
+<%= @invites_left %>
+invites left
+
+<br><br>
+
+<% if @invite %>
+  <h2>Invite a friend</h2>
+  <br>
+  <%= render 'invites/form', invite: @invite %>
+  <br><br>
+
+  <% @invites.each do |invite| %>
+    <%= invite.to_json %>
+    <br><br>
+  <% end %>
+<% end %>
+
 <%= link_to "Edit", edit_profile_path(@profile) %>

@@ -2,6 +2,9 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[ show edit update destroy ]
 
   def show
+    @invites = @profile.user.invites.left
+    @invites_left = @invites.count
+    @invite = @invites.first
   end
 
   def edit

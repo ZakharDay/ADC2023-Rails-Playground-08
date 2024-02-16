@@ -6,6 +6,7 @@ def seed
   clean_content_folders
   create_admin
   create_users
+  # create_invites(3)
   create_pins(100)
   create_comments(2..8)
   create_comment_replies(1000)
@@ -51,6 +52,17 @@ def create_users
     puts "User created with id #{user.id}"
 
     i += 1
+  end
+end
+
+def create_invites(quantity)
+  users = User.all
+
+  users.each do |user|
+    quantity.times do
+      invite = user.invites.create()
+      puts "Invite with id #{invite.id} just created"
+    end
   end
 end
 

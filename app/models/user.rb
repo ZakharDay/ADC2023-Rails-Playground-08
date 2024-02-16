@@ -12,9 +12,20 @@ class User < ApplicationRecord
   has_one :profile
   has_many :carts, as: :cartable
 
+  has_many :invites, class_name: 'Invite', foreign_key: 'inviter_id'
+  has_one :invite, class_name: 'Invite', foreign_key: 'invitee_id'
+
   after_create :create_profile
+  after_create :create_invites
 
   def create_profile
     Profile.create(user_id: id)
   end
+
+  def create_invites
+    3.times do
+      Invite.create(inviter_id: id)
+    end
+  end
+
 end
