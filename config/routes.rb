@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  require 'resque/server'
+  mount Resque::Server, at: '/jobs'
+
   patch 'invites/:id', to: 'invites#update', as: 'invite'
 
   get 'cart/add/:id', to: 'carts#add', as: 'cart_add'

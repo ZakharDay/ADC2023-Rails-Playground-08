@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-  layout :resolve_layout
+  # layout :resolve_layout
 
   # GET /posts or /posts.json
   def index
@@ -83,14 +83,14 @@ class PostsController < ApplicationController
       p.permit(:type, :title, :body, :url, :tag_list)
     end
 
-    def resolve_layout
-      case action_name
-      when "show"
-        "custom"
-      when "index"
-        "pins"
-      else
-        "application"
-      end
-    end
+    # def resolve_layout
+    #   case action_name
+    #   when "show"
+    #     "custom"
+    #   when "index"
+    #     "pins"
+    #   else
+    #     "application"
+    #   end
+    # end
 end
