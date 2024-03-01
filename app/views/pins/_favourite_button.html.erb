@@ -1,0 +1,15 @@
+<%
+  pin_user_ids = []
+
+  pin.users.each do |user|
+    pin_user_ids << user.id
+  end
+
+  favourite_link_text = pin_user_ids.include?(current_user.id) ? '★' : '☆'
+%>
+
+<%= turbo_frame_tag dom_id(pin) do %>
+  <br><br>
+  <%= link_to favourite_link_text, toggle_favourite_pin_path(pin), data: { turbo_stream: true } %>
+  <br><br>
+<% end %>

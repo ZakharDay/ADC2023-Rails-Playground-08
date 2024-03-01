@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_16_122423) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_16_161001) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -107,6 +107,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_16_122423) do
     t.integer "user_id"
     t.string "slug"
     t.index ["slug"], name: "index_pins_on_slug", unique: true
+  end
+
+  create_table "pins_users", force: :cascade do |t|
+    t.integer "pin_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "poly_comments", force: :cascade do |t|

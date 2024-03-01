@@ -14,8 +14,11 @@ Rails.application.routes.draw do
   resources :comments, only: [:edit, :update]
 
   resources :pins do
-    resources :comments
+    member do
+      get 'toggle_favourite', to: 'pins#toggle_favourite', as: 'toggle_favourite'
+    end
 
+    resources :comments
     get "/by_tag/:tag", to: "pins#by_tag", on: :collection, as: "tagged"
   end
 

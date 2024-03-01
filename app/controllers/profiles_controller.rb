@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
     @invites = @profile.user.invites.left
     @invites_left = @invites.count
     @invite = @invites.first
+    @favourites = @profile.user.favourites
   end
 
   def edit

@@ -5,6 +5,8 @@ class Pin < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :poly_comments, as: :commentable, dependent: :destroy
 
+  has_and_belongs_to_many :users
+
   belongs_to :user
   mount_uploader :pin_image, PinImageUploader
 

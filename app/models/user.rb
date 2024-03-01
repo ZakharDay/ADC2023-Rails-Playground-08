@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :invites, class_name: 'Invite', foreign_key: 'inviter_id'
   has_one :invite, class_name: 'Invite', foreign_key: 'invitee_id'
 
+  has_and_belongs_to_many :favourites, class_name: 'Pin', foreign_key: 'user_id'
+
   after_create :create_profile
   after_create :create_invites
 

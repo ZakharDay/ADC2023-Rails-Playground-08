@@ -1,4 +1,4 @@
-<div id="<%= dom_id pin %>">
+<div class="pinCard">
   <%= image_tag pin.pin_image.url, width: 300 if pin.pin_image.url %>
 
   <p>
@@ -25,5 +25,7 @@
     <strong>Categories</strong>
     <%= pin.category_list %>
   </p>
+
+  <%= render 'pins/favourite_button', pin: pin %>
 
 </div>

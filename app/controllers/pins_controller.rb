@@ -1,6 +1,6 @@
 class PinsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_pin, only: %i[ show edit update destroy ]
+  before_action :set_pin, only: %i[ show edit update destroy toggle_favourite ]
 
   # GET /pins or /pins.json
   def index
@@ -66,6 +66,26 @@ class PinsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to pins_url, notice: "Pin was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def toggle_favourite
+    pin_user_ids = []
+
+    @pin.users.each do |user|
+      pin_user_ids << user.id
+    end
+
+    if pin_user_ids.include?(current_user.id)
+      current_user.favourites.delete(@pin)
+    else
+      current_user.favourites << @pin
+    end
+
+    set_pin
+
+    respond_to do |format|
+      format.turbo_stream
     end
   end
 

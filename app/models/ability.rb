@@ -10,6 +10,7 @@ class Ability
     end
 
     if user
+      can :toggle_favourite, Pin
       can :manage, Pin, user_id: user.id
       can :manage, Comment, user_id: user.id
       can :manage, PolyComment, user_id: user.id
