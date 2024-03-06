@@ -32,6 +32,7 @@ class PinsController < ApplicationController
   # POST /pins or /pins.json
   def create
     @pin = Pin.new(pin_params)
+    current_user.notifications.create(body: "Пин создан")
 
     respond_to do |format|
       if @pin.save
@@ -72,21 +73,33 @@ class PinsController < ApplicationController
   def toggle_favourite
     pin_user_ids = []
 
-    @pin.users.each do |user|
+    @pin.users_who_favourited.each do |user|
       pin_user_ids << user.id
     end
 
     if pin_user_ids.include?(current_user.id)
-      current_user.favourites.delete(@pin)
+      current_user.pins_i_favourited.delete(@pin)
     else
-      current_user.favourites << @pin
+      current_user.pins_i_favourited << @pin
     end
 
     set_pin
+  end
 
-    respond_to do |format|
-      format.turbo_stream
+  def toggle_like
+    pin_user_ids = []
+
+    @pin.users_who_liked.each do |user|
+      pin_user_ids << user.id
     end
+
+    if pin_user_ids.include?(current_user.id)
+      current_user.pins_i_liked.delete(@pin)
+    else
+      current_user.pins_i_liked << @pin
+    end
+
+    set_pin
   end
 
   private

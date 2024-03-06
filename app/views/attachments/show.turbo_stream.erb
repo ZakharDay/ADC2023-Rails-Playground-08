@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "new_attachment_button", partial: 'attachments/new_attachment_button' %>
+
+<%= turbo_stream.append "notifications" do %>
+  <div class="notification">
+    <%#= @notification.body %>
+  </div>
+<% end %>

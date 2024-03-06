@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :notifications
+  resources :attachments
   require 'resque/server'
   mount Resque::Server, at: '/jobs'
 
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   resources :pins do
     member do
       get 'toggle_favourite', to: 'pins#toggle_favourite', as: 'toggle_favourite'
+      get 'toggle_like', to: 'pins#toggle_like', as: 'toggle_like'
     end
 
     resources :comments

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Attachments</h1>
+<%= turbo_stream_from "attachments" %>
+
+<div id="attachments">
+  <% @attachments.each do |attachment| %>
+    <%= render attachment %>
+  <% end %>
+</div>
+
+<%= turbo_frame_tag "new_attachment_button" do %>
+  <%= link_to "New attachment", new_attachment_path %>
+<% end %>

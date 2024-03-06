@@ -30,10 +30,16 @@
     <%= render 'menubar' %>
     <%= render 'cartbar' %>
 
+    <div>
+      <%= SecureRandom.uuid %>
+    </div>
+
     <section class="contentArea">
       <%= yield %>
     </section>
     
     <%= render 'footer' %>
+
+    <%= render 'notifications' %>
   </body>
 </html>

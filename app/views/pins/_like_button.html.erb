@@ -1,0 +1,21 @@
+<%
+  pin_user_ids = []
+
+  pin.users_who_liked.each do |user|
+    pin_user_ids << user.id
+  end
+
+  counter = pin_user_ids.count > 0 ? pin_user_ids.count : ''
+
+  if current_user
+    link_text = pin_user_ids.include?(current_user.id) ? "♥ #{counter}" : "♡ #{counter}"
+  else
+    link_text = "♡ #{counter}"
+  end
+%>
+
+<%= turbo_frame_tag dom_id(pin) do %>
+  <br><br>
+  <%= link_to link_text, toggle_like_pin_path(pin) %>
+  <br><br>
+<% end %>

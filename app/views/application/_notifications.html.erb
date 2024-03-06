@@ -1,0 +1,7 @@
+<div class="notifications" id="notifications">
+  <% current_user.notifications.each do |notification| %>
+    <div class="notification">
+      <%= notification.body %>
+    </div>
+  <% end %>
+</div>

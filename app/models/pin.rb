@@ -5,7 +5,11 @@ class Pin < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :poly_comments, as: :commentable, dependent: :destroy
 
-  has_and_belongs_to_many :users
+  has_many :favourites
+  has_many :users_who_favourited, through: :favourites, source: 'user'
+
+  has_many :likes
+  has_many :users_who_liked, through: :likes, source: 'user'
 
   belongs_to :user
   mount_uploader :pin_image, PinImageUploader
