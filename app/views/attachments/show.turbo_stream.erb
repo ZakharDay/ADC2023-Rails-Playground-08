@@ -1,0 +1,2 @@
+<%= turbo_stream.append "attachments", partial: "attachments/attachment", locals: { attachment: @attachment } %>
+<%= turbo_stream.replace "new_attachment_form", partial: "attachments/new_attachment_button" %>

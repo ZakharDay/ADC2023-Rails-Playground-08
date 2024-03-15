@@ -1,0 +1,13 @@
+<%= turbo_stream.replace "new_attachment_button" do %>
+  <div id="new_attachment_form">
+    <h1>New attachment</h1>
+
+    <%= render "form", attachment: @attachment %>
+
+    <br>
+
+    <div>
+      <%= link_to "Отмена", attachments_path, data: { turbo_stream: true } %>
+    </div>
+  </div>
+<% end %>

@@ -1,3 +1,1 @@
-<%= turbo_frame_tag "new_attachment_button" do %>
-  <%= link_to "New attachment", new_attachment_path %>
-<% end %>
+<%= link_to "New attachment", new_attachment_path, id: "new_attachment_button", data: { turbo_stream: true } %>

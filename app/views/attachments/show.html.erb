@@ -6,9 +6,5 @@
   <%= link_to "Edit this attachment", edit_attachment_path(@attachment) %> |
   <%= link_to "Back to attachments", attachments_path %>
 
-  <%= button_to "Destroy this attachment", @attachment, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+  <%= link_to "Destroy this attachment", attachment_path(@attachment, redirect_to: attachments_path, format: :html), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 </div>
-
-<%= turbo_frame_tag "new_attachment_button" do %>
-  <%= link_to "New attachment", new_attachment_path %>
-<% end %>

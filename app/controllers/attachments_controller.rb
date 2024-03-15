@@ -51,9 +51,13 @@ class AttachmentsController < ApplicationController
   def destroy
     @attachment.destroy
 
+    referer = params[:redirect_to] || request.referer || root_path
+
     respond_to do |format|
-      format.html { redirect_to attachments_url, notice: "Attachment was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to referer + "?format=html", status: 301 }
+      format.turbo_stream { }
+      # format.html { redirect_to attachments_url, notice: "Attachment was successfully destroyed." }
+      # format.json { head :no_content }
     end
   end
 

@@ -9,6 +9,4 @@
   <% end %>
 </div>
 
-<%= turbo_frame_tag "new_attachment_button" do %>
-  <%= link_to "New attachment", new_attachment_path %>
-<% end %>
+<%= render "attachments/new_attachment_button" %>
