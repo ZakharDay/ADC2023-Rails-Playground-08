@@ -18,21 +18,17 @@
 <%= render 'support_form', support: Support.new %>
 <%#= link_to "Get Support", support_request_support_path %>
 
-<%
-=begin%>
+<div data-controller="hello">
+  <input data-hello-target="name" type="text">
+  <button data-action="click->hello#greet">Greet</button>
+</div>
 
-<%
-  q = 0
-%>
+<div data-controller="slideshow" data-index="1" data-slideshow-index-value="2">
+  <button data-action="slideshow#previous"> ← </button>
+  <button data-action="slideshow#next"> → </button>
 
--1.5 <%= I18n.t :exam, count: -1.5 %>
-
-<% 100.times do %>
-  <p>
-    <%= q %> <%= I18n.t :exam, count: q %>
-  </p>
-  <% q += 1 %>
-<% end %>
-
-<%
-=end%>
+  <div data-slideshow-target="slide">🐵</div>
+  <div data-slideshow-target="slide">🙈</div>
+  <div data-slideshow-target="slide">🙉</div>
+  <div data-slideshow-target="slide">🙊</div>
+</div>
