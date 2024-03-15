@@ -32,7 +32,6 @@ class PinsController < ApplicationController
   # POST /pins or /pins.json
   def create
     @pin = Pin.new(pin_params)
-    current_user.notifications.create(body: "Пин создан")
 
     respond_to do |format|
       if @pin.save

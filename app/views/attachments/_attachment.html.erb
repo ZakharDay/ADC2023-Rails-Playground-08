@@ -1,9 +1,6 @@
 <div class="attachment" id="<%= dom_id attachment %>">
-  <p>
-    <strong>File:</strong>
-    <%#= attachment.file %>
-    <%= attachment.file.identifier %>
-  </p>
+  <%= image_tag attachment.file.url, width: 500 %>
+  <%#= attachment.file.identifier %>
 
   <p>
     <%= link_to "Show this attachment", attachment %>

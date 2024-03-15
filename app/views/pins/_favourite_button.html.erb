@@ -13,7 +13,5 @@
 %>
 
 <%= turbo_frame_tag dom_id(pin) do %>
-  <br><br>
   <%= link_to link_text, toggle_favourite_pin_path(pin) %>
-  <br><br>
 <% end %>

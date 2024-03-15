@@ -25,8 +25,6 @@ class AttachmentsController < ApplicationController
 
     respond_to do |format|
       if @attachment.save
-        current_user.notifications.create(body: "Атачмент создан #{@attachment.id}")
-
         format.html { redirect_to attachment_url(@attachment), notice: "Attachment was successfully created." }
         format.json { render :show, status: :created, location: @attachment }
       else

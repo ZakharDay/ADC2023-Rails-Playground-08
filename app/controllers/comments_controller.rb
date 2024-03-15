@@ -27,6 +27,11 @@ class CommentsController < ApplicationController
           # @pin = @comment.pin
           # format.turbo_stream { render turbo_stream: turbo_stream.prepend('comments', partial: 'comment', locals: {pin: @pin}) }
 
+          if @comment.user.id != @pin.user.id
+            user = @pin.user
+            notification = user.notifications.create!(body: "Комментарий '#{@comment.body}' от пользователя #{@comment.user.email}")
+          end
+
           format.html { redirect_to pin_url(@pin), notice: "Comment was successfully created." }
           format.json { render :show, status: :created, location: @comment }
         else

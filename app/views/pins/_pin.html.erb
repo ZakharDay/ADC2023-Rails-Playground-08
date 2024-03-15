@@ -1,30 +1,23 @@
 <div class="pinCard">
   <%= image_tag pin.pin_image.url, width: 300 if pin.pin_image.url %>
 
-  <p>
-    <strong>Title:</strong>
-    <%= pin.title %>
-  </p>
+  <h2><%= link_to pin.title, pin %></h2>
 
-  <p>
-    <strong>Description:</strong>
-    <%= pin.description %>
-  </p>
+  <br>
 
+  <p><%= pin.description %></p>
+
+  <br>
+  
   <p>
     <strong>By</strong>
     <%= pin.user.email %>
   </p>
 
-  <p>
-    <strong>Tags</strong>
-    <%= pin.tag_list %>
-  </p>
+  <%#= pin.tag_list %>
+  <%#= pin.category_list %>
 
-  <p>
-    <strong>Categories</strong>
-    <%= pin.category_list %>
-  </p>
+  <br>
 
   <%= render 'pins/favourite_button', pin: pin %>
   <%= render 'pins/like_button', pin: pin %>
