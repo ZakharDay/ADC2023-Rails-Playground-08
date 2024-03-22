@@ -43,21 +43,21 @@ class GalleryImagesController < ApplicationController
     end
   end
 
-  def lower
-    @gallery_image.move_lower
-    @gallery_images = @gallery.gallery_images
-
-    respond_to do |format|
-      format.turbo_stream { render 'destroy' }
-    end
-  end
-
   def higher
     @gallery_image.move_higher
     @gallery_images = @gallery.gallery_images
 
     respond_to do |format|
-      format.turbo_stream { render 'destroy' }
+      format.turbo_stream { render 'move' }
+    end
+  end
+
+  def lower
+    @gallery_image.move_lower
+    @gallery_images = @gallery.gallery_images
+
+    respond_to do |format|
+      format.turbo_stream { render 'move' }
     end
   end
 

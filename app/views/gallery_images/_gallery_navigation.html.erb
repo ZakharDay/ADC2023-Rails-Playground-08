@@ -1,0 +1,7 @@
+<div class="galleryNavigation" id="galleryNavigation">
+  <% if gallery.gallery_images.any? %>
+    <div class="button" data-gallery-target="prevButton" data-action="click->gallery#prevImage">←</div>
+    <div></div>
+    <div class="button" data-gallery-target="nextButton" data-action="click->gallery#nextImage">→</div>
+  <% end %>
+</div>
