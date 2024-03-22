@@ -1,0 +1,20 @@
+<div id="gallery" data-controller="gallery">
+  <%= render "gallery_images/gallery_images", gallery: @gallery %>
+
+  <%= form_with(model: GalleryImage.new, url: gallery_gallery_images_path(@gallery), data: { turbo_stream: true }) do |form| %>
+    <%= form.file_field :image, hidden: true, data: { gallery_target: "newImageButton", action: "change->gallery#createImage" } %>
+    <br>
+    <%= form.submit "Создать", hidden: true, data: { gallery_target: "createImageButton" } %>
+
+    <div class="button" data-action="click->gallery#newImage">Загрузить картинку</div>
+  <% end %>
+</div>
+
+<br><br>
+
+<div>
+  <%= link_to "Edit this gallery", edit_gallery_path(@gallery) %> |
+  <%= link_to "Back to galleries", galleries_path %>
+
+  <%= button_to "Destroy this gallery", @gallery, method: :delete %>
+</div>

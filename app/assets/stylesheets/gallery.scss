@@ -1,0 +1,47 @@
+.button {
+  // width: 200px;
+  display: inline-block;
+  padding: 0 20px;
+  height: 40px;
+  line-height: 40px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.galleryNavigation {
+  display: flex;
+  width: 700px;
+  padding-bottom: 30px;
+  justify-content: space-between;
+}
+
+.galleryImages {
+  width: 700px;
+  overflow: hidden;
+
+  .galleryImagesRail {
+    display: flex;
+    transition: all 0.3s ease;
+  }
+}
+
+.galleryImage {
+  position: relative;
+
+  .buttonSet {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    .button {
+      opacity: 0.4;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

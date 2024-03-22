@@ -1,0 +1,5 @@
+<% if @gallery.gallery_images.count === 1 %>
+  <%= turbo_stream.replace "galleryImages", partial: "gallery_images/gallery_images", locals: { gallery: @gallery } %>
+<% else %>
+  <%= turbo_stream.append "galleryImagesRail", partial: "gallery_images/gallery_image", locals: { gallery_image: @gallery_image } %>
+<% end %>

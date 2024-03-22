@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @gallery_image %>
+
+<div>
+  <%= link_to "Edit this gallery image", edit_gallery_image_path(@gallery_image) %> |
+  <%= link_to "Back to gallery images", gallery_images_path %>
+
+  <%= button_to "Destroy this gallery image", @gallery_image, method: :delete %>
+</div>

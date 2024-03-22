@@ -68,6 +68,8 @@ GEM
       tzinfo (~> 2.0)
     acts-as-taggable-on (9.0.1)
       activerecord (>= 6.0, < 7.1)
+    acts_as_list (1.1.0)
+      activerecord (>= 4.2)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
     babosa (2.0.0)
@@ -119,6 +121,7 @@ GEM
       concurrent-ruby (~> 1.0)
       zeitwerk (~> 2.6)
     erubi (1.12.0)
+    fastimage (2.3.0)
     ffi (1.15.5)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
@@ -313,6 +316,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 9.0)
+  acts_as_list
   babosa
   bootsnap
   cancancan
@@ -321,6 +325,7 @@ DEPENDENCIES
   debug
   devise
   devise-jwt
+  fastimage
   friendly_id (~> 5.4.0)
   image_processing (~> 1.2)
   importmap-rails

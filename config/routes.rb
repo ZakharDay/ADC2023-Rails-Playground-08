@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  resources :galleries do
+    resources :gallery_images, only: :create
+  end
+
+  resources :gallery_images, only: :destroy do
+    member do
+      get :lower
+      get :higher
+    end
+  end
+
   resources :notifications
   resources :attachments
   require 'resque/server'

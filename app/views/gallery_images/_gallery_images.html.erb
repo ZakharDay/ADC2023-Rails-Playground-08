@@ -1,0 +1,17 @@
+<div class="galleryNavigation" id="galleryNavigation">
+  <div class="button" data-gallery-target="prevButton" data-action="click->gallery#prevImage">←</div>
+  <div></div>
+  <div class="button" data-gallery-target="nextButton" data-action="click->gallery#nextImage">→</div>
+</div>
+
+<div class="galleryImages" id="galleryImages">
+  <% if gallery.gallery_images.any? %>
+    <div class="galleryImagesRail" id="galleryImagesRail" data-gallery-target="galleryImagesRail">
+      <%= render gallery.gallery_images %>
+    </div>
+  <% else %>
+    <div class="empty">
+      Пока нет картинок
+    </div>
+  <% end %>
+</div>

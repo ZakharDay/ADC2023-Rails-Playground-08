@@ -61,6 +61,8 @@ gem "babosa"
 gem "russian"
 gem "devise-jwt"
 gem "resque"
+gem "fastimage"
+gem "acts_as_list"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
