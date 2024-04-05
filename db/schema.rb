@@ -72,10 +72,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_112337) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "pin_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "reply_to_comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "favourites", force: :cascade do |t|
@@ -144,11 +144,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_112337) do
   create_table "pins", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "pin_image"
     t.integer "user_id"
     t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_pins_on_slug", unique: true
   end
 
@@ -243,9 +243,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_112337) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.boolean "admin", default: false
+    t.string "jti", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "jti", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
