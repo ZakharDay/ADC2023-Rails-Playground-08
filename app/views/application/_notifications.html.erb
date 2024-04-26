@@ -3,8 +3,18 @@
 
   <div class="notifications" id="notifications">
     <% current_user.notifications.each do |notification| %>
+      <%
+        url = nil
+
+        if notification.notifiable_type === 'Comment'
+          comment = Comment.find(notification.notifiable_id)
+          pin = comment.pin
+          url = pin_url(pin, anchor: "comment_#{comment.id}")
+        end
+      %>
+
       <div class="notification">
-        <%= notification.body %>
+        <%= link_to notification.body, url %>
       </div>
     <% end %>
   </div>

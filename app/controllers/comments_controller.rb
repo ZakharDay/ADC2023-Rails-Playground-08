@@ -29,7 +29,9 @@ class CommentsController < ApplicationController
 
           if @comment.user.id != @pin.user.id
             user = @pin.user
-            notification = user.notifications.create!(body: "Комментарий '#{@comment.body}' от пользователя #{@comment.user.email}")
+            body = "Комментарий '#{@comment.body}' от пользователя #{@comment.user.email}"
+            notification = user.notifications.create!(body: body, notifiable_type: 'Comment', notifiable_id: @comment.id)
+            ActionCable.server.broadcast("notifications_#{user.id}", { body: body, url: pin_path(@pin, anchor: "comment_#{@comment.id}") })
           end
 
           format.html { redirect_to pin_url(@pin), notice: "Comment was successfully created." }
