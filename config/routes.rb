@@ -74,6 +74,7 @@ Rails.application.routes.draw do
   get 'welcome/about'
   get 'welcome/feed'
   get 'welcome/search'
+  get 'welcome/speech'
 
   root "welcome#index"
 

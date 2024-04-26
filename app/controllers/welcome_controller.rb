@@ -18,4 +18,7 @@ class WelcomeController < ApplicationController
     @items = PgSearch.multisearch(params['search'])
   end
 
+  def speech
+  end
+
 end
