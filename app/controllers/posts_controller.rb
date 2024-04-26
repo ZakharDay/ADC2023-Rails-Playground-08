@@ -80,7 +80,7 @@ class PostsController < ApplicationController
         p = params.require(:figma_post)
       end
 
-      p.permit(:type, :title, :body, :url, :tag_list)
+      p.permit(:type, :title, :description, :body, :url, :tag_list)
     end
 
     # def resolve_layout

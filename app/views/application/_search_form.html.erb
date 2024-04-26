@@ -1,0 +1,9 @@
+<header class="S_SearchBar" data-controller="search">
+  <%= form_with url: welcome_search_url, method: :get, data: { search_target: "searchForm" } do |f| %>
+    <%= f.text_field :search, data: { search_target: "searchField", action: "input->search#getData" } %>
+    <%= f.submit "Поиск" %>
+    <%= f.submit "Поиск", data: { turbo_stream: true, search_target: "submitButton" }, hidden: true %>
+  <% end %>
+
+  <%= render "welcome/search_results" %>
+</header>

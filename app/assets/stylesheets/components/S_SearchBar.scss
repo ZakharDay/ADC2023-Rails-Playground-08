@@ -1,0 +1,16 @@
+.S_SearchBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+
+  .O_SearchPreview {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    max-height: 500px;
+    display: flex;
+    overflow: scroll;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
