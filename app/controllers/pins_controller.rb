@@ -99,6 +99,8 @@ class PinsController < ApplicationController
     end
 
     set_pin
+
+    ActionCable.server.broadcast("pins_channel", { id: @pin.id, likes: @pin.likes.count })
   end
 
   private

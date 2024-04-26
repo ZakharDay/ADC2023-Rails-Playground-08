@@ -8,12 +8,15 @@
   counter = pin_user_ids.count > 0 ? pin_user_ids.count : ''
 
   if current_user
-    link_text = pin_user_ids.include?(current_user.id) ? "♥ #{counter}" : "♡ #{counter}"
+    icon = pin_user_ids.include?(current_user.id) ? "♥" : "♡"
   else
-    link_text = "♡ #{counter}"
+    icon = "♡"
   end
 %>
 
-<%= turbo_frame_tag dom_id(pin) do %>
-  <%= link_to link_text, toggle_like_pin_path(pin) %>
+<%= turbo_frame_tag "like_#{dom_id(pin)}" do %>
+  <%= link_to toggle_like_pin_path(pin), data: { turbo_stream: true } do %>
+    <span><%= icon %></span>
+    <span class="counter"><%= counter %></span>
+  <% end %>
 <% end %>
