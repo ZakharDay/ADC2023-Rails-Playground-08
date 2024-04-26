@@ -20,13 +20,9 @@ class CommentsController < ApplicationController
   def create
     if current_user
       @comment = @pin.comments.new(comment_params)
-      # @comment = @pin.comments.new(body: params[:comment][:body], user_id: current_user.id)
 
       respond_to do |format|
         if @comment.save
-          # @pin = @comment.pin
-          # format.turbo_stream { render turbo_stream: turbo_stream.prepend('comments', partial: 'comment', locals: {pin: @pin}) }
-
           if @comment.user.id != @pin.user.id
             user = @pin.user
             body = "Комментарий '#{@comment.body}' от пользователя #{@comment.user.email}"
