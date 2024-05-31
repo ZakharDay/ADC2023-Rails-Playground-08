@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.2"
+ruby "3.2.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.7", ">= 7.0.7.2"
+gem "rails", "~> 7.1.3", ">= 7.1.3.3"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -53,7 +53,7 @@ gem "mini_magick"
 gem "devise"
 gem "cancancan"
 gem "rack-cors"
-gem "acts-as-taggable-on", "~> 9.0"
+gem "acts-as-taggable-on"
 gem "sass-rails"
 gem "meta-tags"
 gem "friendly_id", "~> 5.4.0"
@@ -82,6 +82,12 @@ group :development do
   # gem "spring"
 
   gem "letter_opener"
+
+  gem "capistrano"
+  gem "capistrano-rbenv"
+  gem "capistrano-rails"
+  gem "capistrano-bundler"
+  gem "capistrano3-puma"
 end
 
 group :test do
