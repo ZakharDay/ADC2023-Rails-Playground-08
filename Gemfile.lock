@@ -327,6 +327,8 @@ GEM
       net-scp (>= 1.1.2)
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
+    sshkit-sudo (0.1.0)
+      sshkit (~> 1.8)
     ssrf_filter (1.1.2)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
@@ -405,6 +407,7 @@ DEPENDENCIES
   sass-rails
   selenium-webdriver
   sprockets-rails
+  sshkit-sudo
   stimulus-rails
   turbo-rails
   tzinfo-data
