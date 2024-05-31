@@ -10,7 +10,7 @@ set :repo_url, "git@github.com:ZakharDay/ADC2023-Rails-Playground-08.git"
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-set :branch, "master"
+set :branch, "main"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/deployer/apps/#{fetch :application}"
