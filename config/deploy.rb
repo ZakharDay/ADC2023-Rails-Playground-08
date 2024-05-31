@@ -29,7 +29,7 @@ set :pty, true
 append :linked_files, "config/database.yml", "config/master.key", "config/puma.rb", "config/credentials.yml.enc"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/uploads", "vendor", "storage"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/uploads", "vendor/javascript", "storage"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -44,4 +44,5 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/uplo
 # set :ssh_options, verify_host_key: :secure
 
 set :puma_init_active_record, true
+set :puma_enable_socket_service, true
 set :puma_conf, -> { File.join(shared_path, 'config', 'puma.rb') }
