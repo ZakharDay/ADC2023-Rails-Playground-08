@@ -49,13 +49,3 @@ set :puma_enable_socket_service, true
 set :puma_conf, -> { File.join(shared_path, 'config', 'puma.rb') }
 
 set :ssh_options, verify_host_key: :never
-
-task :rake do
-  on roles(:app), in: :sequence, wait: 5 do
-    within release_path do
-      with rails_env: :production do
-        execute :rake, ENV['task'], "RAILS_ENV=production"
-      end
-    end
-  end
-end

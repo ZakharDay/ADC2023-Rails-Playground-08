@@ -35,6 +35,7 @@ require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 # require "capistrano/passenger"
 require "capistrano/puma"
+require "capistrano/rake"
 require "sshkit/sudo"
 
 install_plugin Capistrano::Puma  # Default puma tasks
