@@ -11,6 +11,7 @@ set :repo_url, "git@github.com:ZakharDay/ADC2023-Rails-Playground-08.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 set :branch, "main"
+set :rails_env, "production"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/deployer/apps/#{fetch :application}"
@@ -46,3 +47,5 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/uplo
 set :puma_init_active_record, true
 set :puma_enable_socket_service, true
 set :puma_conf, -> { File.join(shared_path, 'config', 'puma.rb') }
+
+set :ssh_options, verify_host_key: :never
