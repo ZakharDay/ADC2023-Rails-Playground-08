@@ -101,9 +101,9 @@ Rails.application.configure do
     user_name:       Rails.application.credentials[:email_user],
     password:        Rails.application.credentials[:email_password],
     authentication:  'plain',
-    enable_starttls: true,
-    open_timeout:    5,
-    read_timeout:    5
+    # enable_starttls: true,
+    # open_timeout:    5,
+    # read_timeout:    5
   }
 
 end
