@@ -1,5 +1,6 @@
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "http://adc2023.adc.ac"
+SitemapGenerator::Sitemap.sitemaps_path = "shared/"
 
 # SitemapGenerator::Sitemap.compress = false
 
