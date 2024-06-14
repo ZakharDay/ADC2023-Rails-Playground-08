@@ -4,7 +4,7 @@ lock "~> 3.18.1"
 set :rbenv_type, :user
 set :rbenv_ruby, "3.2.4"
 
-set :application, "adc2023_08"
+set :application, "adc2024"
 set :repo_url, "git@github.com:ZakharDay/ADC2023-Rails-Playground-08.git"
 
 # Default branch is :master
@@ -12,6 +12,7 @@ set :repo_url, "git@github.com:ZakharDay/ADC2023-Rails-Playground-08.git"
 
 set :branch, "main"
 set :rails_env, "production"
+set :bundle_flags, "--deployment"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/deployer/apps/#{fetch :application}"

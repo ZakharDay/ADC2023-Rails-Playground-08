@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
     if cookies[:guest_token]
       @guest = Guest.find_by_token(cookies[:guest_token])
+
+      unless @guest
+        @guest = Guest.create!(token: guest_token)
+      end
     else
       guest_token = SecureRandom.uuid
       cookies[:guest_token] = guest_token
