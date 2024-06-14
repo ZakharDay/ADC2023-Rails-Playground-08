@@ -1,3 +1,4 @@
+set :output, "log/cron_log.log"
 job_type :rake, "cd :path && ./bin/bundle exec rake :task :environment_variable=:environment :output"
 
 every 2.minute do
