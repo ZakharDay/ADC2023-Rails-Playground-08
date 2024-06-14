@@ -28,7 +28,7 @@ set :deploy_to, "/home/deployer/apps/#{fetch :application}"
 set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", "config/master.key", "config/puma.rb", "config/credentials.yml.enc", "public/sitemap.xml.gz"
+append :linked_files, "config/database.yml", "config/master.key", "config/puma.rb", "config/credentials.yml.enc"#, "public/sitemap.xml.gz"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/uploads", "public/autoupload", "vendor/javascript", "storage"
