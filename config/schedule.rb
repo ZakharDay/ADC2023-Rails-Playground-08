@@ -1,5 +1,5 @@
 every 2.minute do
-  rake "-s sitemap:refresh"
+  rake "sitemap:refresh"
 end
 
 # Use this file to easily define all of your cron jobs.
