@@ -1,4 +1,4 @@
-job_type :rake, "cd :path && :environment_variable=:environment bundle exec rake :task :output"
+job_type :rake, "cd :path && ./bin/bundle exec rake :task :environment_variable=:environment :output"
 
 every 2.minute do
   rake "sitemap:refresh"
