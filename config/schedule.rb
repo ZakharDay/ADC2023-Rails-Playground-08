@@ -1,3 +1,5 @@
+job_type :rake, "cd :path && :environment_variable=:environment bundle exec rake :task :output"
+
 every 2.minute do
   rake "sitemap:refresh"
 end
