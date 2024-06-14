@@ -92,18 +92,18 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: '1gb.ru' }
+  config.action_mailer.default_url_options = { host: 'adc2023.adc.ac' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.smtp_settings = {
-    address:         'smtp-15.1gb.ru',
-    port:            25,
-    domain:          '1gb.ru',
-    user_name:       Rails.application.credentials[:email_user],
-    password:        Rails.application.credentials[:email_password],
-    authentication:  'plain',
+    address:         'robots.1gb.ru',
+    port:            587,
+    domain:          'adc.ac'
+    # user_name:       Rails.application.credentials[:email_user],
+    # password:        Rails.application.credentials[:email_password],
+    # authentication:  'plain',
     # enable_starttls: true,
     # open_timeout:    5,
     # read_timeout:    5
