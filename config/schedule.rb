@@ -1,4 +1,4 @@
-every 1.day, :at => '16:48:00' do
+every 1.day, :at => '16:50:00' do
   rake "-s sitemap:refresh"
 end
 

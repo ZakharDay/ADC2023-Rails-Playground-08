@@ -36,7 +36,8 @@ require "capistrano/rails/migrations"
 # require "capistrano/passenger"
 require "capistrano/puma"
 require "capistrano/rake"
-require 'capistrano/sitemap_generator'
+require "capistrano/sitemap_generator"
+require "whenever/capistrano"
 require "sshkit/sudo"
 
 install_plugin Capistrano::Puma  # Default puma tasks

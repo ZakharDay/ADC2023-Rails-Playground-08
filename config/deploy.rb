@@ -50,5 +50,6 @@ set :puma_enable_socket_service, true
 set :puma_conf, -> { File.join(shared_path, 'config', 'puma.rb') }
 
 set :sitemap_roles, :web
+set :whenever_command, "bundle exec whenever"
 
 set :ssh_options, verify_host_key: :never
