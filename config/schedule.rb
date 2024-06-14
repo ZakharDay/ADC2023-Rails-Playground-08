@@ -1,4 +1,4 @@
-every 1.minute do
+every 2.minute do
   rake "-s sitemap:refresh"
 end
 
