@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :notifications
   resources :attachments
-  require 'resque/server'
-  mount Resque::Server, at: '/jobs'
+  # require 'resque/server'
+  # mount Resque::Server, at: '/jobs'
 
   patch 'invites/:id', to: 'invites#update', as: 'invite'
 

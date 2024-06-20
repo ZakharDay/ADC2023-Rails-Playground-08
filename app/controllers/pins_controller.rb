@@ -35,7 +35,8 @@ class PinsController < ApplicationController
 
     respond_to do |format|
       if @pin.save
-        WaitAndMakeJob.perform_later(@pin, current_user)
+        # WaitAndMakeJob.perform_later(@pin, current_user)
+        MakeInThreeDaysJob.perform_at(1.minutes.from_now, @pin.id, current_user.id)
 
         format.html { redirect_to pin_url(@pin), notice: "Pin was successfully created." }
         format.json { render :show, status: :created, location: @pin }
